@@ -87,7 +87,8 @@ where:
 * `${CONTRACT_NAME}` - an account name that should be used for the contract (we will use the same value as for `${ACCOUNT_NAME}`)
 * `${PATH_TO_WASM}` - a path to the `.wasm` file issued by the `yarn asb` command - `${PROJECT_ROOT}/build/release/some_name.wasm`
 
-# Invoke `view` and `call` functions
+## Contract interaction
 
-`view` functions are used to read state hence they are free. Nothing is modified/persisted when a `view` function is called.
-`call` functions are used to modify state of the data stored in the blockchain.
+There are two types of functions in `near`:
+* `view` functions are used to read state hence they are free. Nothing is modified/persisted when a `view` function is called.
+* `call` functions are used to modify state of the data stored in the blockchain.
