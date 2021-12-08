@@ -80,7 +80,7 @@ The output of this command is a `.wasm` file that is placed into `${PROJECT_ROOT
 ## Deploy a smart contract
 To deploy a smart contract, run the next command from in a terminal window:
 ```
-near deploy --contractName=${CONTRACT_NAME} ${PATH_TO_WASM} --accountId=${ACCOUNT_NAME}
+near deploy ${PATH_TO_WASM} --accountId=${ACCOUNT_NAME}
 ```
 where:
 * `${ACCOUNT_NAME}` - an account name that should be used to deploy a smart contract
