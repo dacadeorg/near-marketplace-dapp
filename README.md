@@ -77,6 +77,15 @@ yarn asb
 
 The output of this command is a `.wasm` file that is placed into `${PROJECT_ROOT}/build/release` directory.
 
+## Login to an account in a shell
+In order to deploy a contract from via terminal, account's credentials are needed. 
+To get the credentials, run the next command in a terminal window:
+```
+near login
+```
+It opens a wallet url in a browser where you can login to your account (or selected one of the existing accounts if you have one).
+As the result the session in the terminal window is authenticated and you can start deploying contracts and view/call functions.
+
 ## Deploy a smart contract
 To deploy a smart contract, run the next command from in a terminal window:
 ```
