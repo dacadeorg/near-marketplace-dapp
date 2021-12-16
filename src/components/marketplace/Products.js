@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import AddProduct from './AddProduct';
 import Product from './Product';
 import Loader from '../utils/Loader';
-import Purchases from './Purchases';
+import { Row } from 'react-bootstrap';
 
 import { NotificationSuccess, NotificationError } from '../utils/Notifications';
 import { getProducts as getProductList, buyProduct, createProduct, getAccountId } from '../../utils/marketplace';
@@ -11,14 +11,12 @@ import { getProducts as getProductList, buyProduct, createProduct, getAccountId 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [accountId, setAccountId] = useState("");
 
   // function to get the list of products from the celo blockchain
   const getProducts = useCallback(async () => {
     try {
       setLoading(true);
       setProducts(await getProductList());
-      setAccountId(await getAccountId());
     } catch (error) {
       console.log({ error });
     } finally {
@@ -62,21 +60,13 @@ const Products = () => {
 
   return (
     <>
-      <div className="mb-4" style={{ marginTop: '4em' }}>
-        <span
-          className="btn btn-dark rounded-pill"
-          data-bs-toggle="modal"
-          data-bs-target="#addModal"
-        >
-          Add product
-        </span>
-      </div>
-      <main id="marketplace" className="row">
-        {!loading ? (
-          <>
+      {!loading ? (
+        <>
+          <div className="d-flex justify-content-between align-items-center mb-4">
+            <h1 className="fs-4 fw-bold mb-0">Street Food Kigali</h1>
             <AddProduct save={addProduct} />
-            <h1>Available products</h1>
-            <br />
+          </div>
+          <Row xs={1} className="g-3  mb-5">
             {products.map((_product) => (
               <Product
                 product={{
@@ -85,14 +75,11 @@ const Products = () => {
                 buy={buy}
               />
             ))}
-            <br />
-            <h1>Purchased products</h1>
-            <Purchases accountId={accountId} />
-          </>
-        ) : (
-          <Loader />
-        )}
-      </main>
+          </Row>
+        </>
+      ) : (
+        <Loader />
+      )}
     </>
   );
 };

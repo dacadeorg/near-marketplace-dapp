@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { truncateAddress } from '../../utils/utils';
+import { Button } from "react-bootstrap";
 
 const Address = ({ address }) => {
   if (address) {
-    return <span className="border rounded-pill btn bg-light">{address}</span>;
+    return (
+      <Button variant="outline-secondary" className="rounded-pill">{address}</Button>
+    );
   }
-
   return null;
 };
 

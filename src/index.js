@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { initializeContract } from './utils/marketplace';
+import { initializeContract } from './utils/contract';
 
 import 'bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';

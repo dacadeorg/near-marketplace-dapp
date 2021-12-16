@@ -1,8 +1,7 @@
 import React from "react";
-import Identicon from "react-hooks-identicons";
 
 const Identicons = ({ address }) => {
-  return <Identicon string={address || "Helloworld"} />;
+  return <span></span>;
 };
 
 export default Identicons;

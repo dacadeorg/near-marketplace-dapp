@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { utils } from 'near-api-js';
+import { Card, Button, Col, Badge, Stack } from "react-bootstrap";
+import Identicon from '../utils/Identicon'
 
 const Product = ({ product, buy }) => {
   const {
@@ -12,41 +14,33 @@ const Product = ({ product, buy }) => {
   };
 
   return (
-    <div className="card col-lg-4 col-md-6 col-xs-12 mb-4" key={id}>
-      <img className="card-img-top" src={image} alt="..." />
-      <div className="position-absolute top-0 end-0 bg-light border mt-4 px-2 py-1 rounded-start">
-        {sold}
-        {' '}
-        Sold
-      </div>
-      <div className="card-body text-left p-4 position-relative">
-        <h2 className="card-title fs-4 fw-bold mt-2">{name}</h2>
-        <p className="card-text mb-4" style={{ minHeight: '82px' }}>
-          {description}
-        </p>
-        <p className="card-text mt-4">
-          <i className="bi bi-geo-alt-fill" />
-          <span>{location}</span>
-        </p>
-        <p className="card-text mt-4">
-          <i className="bi bi-person-circle" />
-          <span>&nbsp;{owner}</span>
-        </p>
-        <div className="d-grid gap-2">
-          <button
-            type="button"
-            className="btn btn-lg btn-outline-dark buyBtn fs-6 p-3"
-            onClick={triggerBuy}
-          >
-            Buy for
-            {' '}
-            {utils.format.formatNearAmount(price)}
-            {' '}
-            NEAR
-          </button>
+    <Col key={id}>
+      <Card className=" h-100">
+        <Card.Header>
+          <Stack direction="horizontal" gap={2}>
+            <Identicon address={owner} size={28} />
+            <span className="font-monospace text-secondary">{owner}</span>
+            <Badge bg="secondary"
+              className="ms-auto">
+              {sold} Sold
+            </Badge>
+          </Stack>
+        </Card.Header>
+        <div className=" ratio ratio-4x3"> 
+            <img  src={image} alt={name} style={{objectFit: 'cover'}}/>     
         </div>
-      </div>
-    </div>
+        <Card.Body className="d-flex  flex-column text-center">
+        <Card.Title>{name}</Card.Title>
+          <Card.Text className="flex-grow-1 ">{description}</Card.Text>
+          <Card.Text className="text-secondary">  
+            <span>{location}</span>
+          </Card.Text>
+          <Button variant="outline-dark" onClick={triggerBuy} className="w-100 py-3">
+            Buy for {utils.format.formatNearAmount(price)} NEAR
+          </Button>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 };
 
