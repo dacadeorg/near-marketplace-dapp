@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "near-sdk-as": "^3.2.3"
+  }
+}

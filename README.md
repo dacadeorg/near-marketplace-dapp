@@ -1,103 +1,70 @@
-# Prerequsities
+# Getting Started with Create React App
 
-Install the next tools:
-* `node`
-* `yarn`
-* `near-cli`
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Also, you'd need a code editor of choice. In this course we are going to use Visual Studio Code.
+## Available Scripts
 
-## Create project structure
+In the project directory, you can run:
 
-The next directories and files must be created to proceed with smart contracts:
-* assembly/ - this directory contains smart contracts source code
-* asconfig.json - contains most of configuration properties
-* assembly/tsconfig.json
+### `yarn start`
 
-### `asconfig.json`
-By default it's needed to add the next content to the file. By adding this, we just extend the configuration provided by `near-sdk-as`.
-```
-{
-    "extends": "near-sdk-as/asconfig.json"
-}
-```
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `assembly/tsconfig.json`
-The purpose of this file is to specify compiler options and root level files that are necessary for a TypeScript project to be compiled.
-Also, this file implies that the directory where `tsconfig.json` is located is the root of the TypeScript project.
-```
-{
-  "extends": "../node_modules/assemblyscript/std/assembly.json",
-  "include": [
-    "./**/*.ts"
-  ]
-}
-```
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-### `as_types.d.ts`
-This files declares that some type names must be included in the compilation. In this case, names are imported from `near-sdk-as`
-```
-/// <reference types="near-sdk-as/assembly/as_types" />
-```
+### `yarn test`
 
-## Initialize project
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Run the next commands in a terminal window (in the project's root):
-```
-yarn init
-```
-It will create a `package.json` file where development dependencies can be added.
+### `yarn build`
 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Run the next command to add `near-sdk-as` to the project:
-```
-yarn add -D near-sdk-as
-```
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-The next step is to create an entry file for the smart contract - create `index.ts` file in the `assembly` directory.
-The resulting project structure should be like this:
-```
-├── asconfig.json
-├── assembly
-│   ├── as_types.d.ts
-│   ├── index.ts
-│   └── tsconfig.json
-├── package.json
-└── yarn.lock
-```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-# Compile, build and deployt the smart contract
+### `yarn eject`
 
-## Compile & build a smart contract
-Before a smart contract can be deployed, it must be built as `.wasm`. 
-To do that, the next command should be run from the project's root:
-```
-yarn asb
-```
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-The output of this command is a `.wasm` file that is placed into `${PROJECT_ROOT}/build/release` directory.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Login to an account in a shell
-In order to deploy a contract from via terminal, account's credentials are needed. 
-To get the credentials, run the next command in a terminal window:
-```
-near login
-```
-It opens a wallet url in a browser where you can login to your account (or selected one of the existing accounts if you have one).
-As the result the session in the terminal window is authenticated and you can start deploying contracts and view/call functions.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-## Deploy a smart contract
-To deploy a smart contract, run the next command from in a terminal window:
-```
-near deploy ${PATH_TO_WASM} --accountId=${ACCOUNT_NAME}
-```
-where:
-* `${ACCOUNT_NAME}` - an account name that should be used to deploy a smart contract
-* `${CONTRACT_NAME}` - an account name that should be used for the contract (we will use the same value as for `${ACCOUNT_NAME}`)
-* `${PATH_TO_WASM}` - a path to the `.wasm` file issued by the `yarn asb` command - `${PROJECT_ROOT}/build/release/some_name.wasm`
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Contract interaction
+## Learn More
 
-There are two types of functions in `near`:
-* `view` functions are used to read state hence they are free. Nothing is modified/persisted when a `view` function is called.
-* `call` functions are used to modify state of the data stored in the blockchain.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
