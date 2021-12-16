@@ -1,4 +1,4 @@
-const CONTRACT_NAME = process.env.CONTRACT_NAME ||'tarras.testnet'
+const CONTRACT_NAME = process.env.CONTRACT_NAME || '' // put here a smart contracts' name
 
 function environment(env) {
   switch (env) {

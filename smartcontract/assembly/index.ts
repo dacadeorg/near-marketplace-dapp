@@ -1,4 +1,4 @@
-import { Product, Purchase, productsStorage, purchases } from './model';
+import { Product, productsStorage } from './model';
 import { context, ContractPromiseBatch } from "near-sdk-as";
 
 /**
@@ -23,14 +23,8 @@ export function buyProduct(productId: string): void {
     */
     ContractPromiseBatch.create(product.owner).transfer(context.attachedDeposit);
     // adding a product to the list of purchases
-    let purchasedProducts = purchases.get(context.sender);
-    if (purchasedProducts === null) {
-        purchasedProducts = new Array<Purchase>();
-    }
     product.incrementSoldAmount();
     productsStorage.set(product.id, product);
-    purchasedProducts.push(new Purchase(product));
-    purchases.set(context.sender, purchasedProducts);
 }
 
 /**
@@ -80,18 +74,4 @@ export function getProduct(id: string): Product | null {
  */
 export function getProducts(): Array<Product> {
     return productsStorage.values();
-}
-
-/**
- * 
- * A function that returns an array of purchased products
- * 
- * @returns an array of purchased products by account
- */
-export function getPurchases(account: string): Purchase[] {
-    const purchasedProducts = purchases.get(account);
-    if (purchasedProducts === null) {
-        return [];
-    }
-    return purchasedProducts;
 }

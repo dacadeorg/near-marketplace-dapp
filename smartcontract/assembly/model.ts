@@ -37,22 +37,6 @@ export class Product {
     }
 }
 
-@nearBindgen
-export class Purchase {
-    id: string;
-    name: string;
-    description: string;
-    image: string;
-    price: u128;
-    constructor(product: Product) {
-        this.id = product.id;
-        this.name = product.name;
-        this.description = product.description;
-        this.image = product.image;
-        this.price = product.price;
-    }
-}
-
 /**
  * `productsStorage` - it's a key-value datastructure that is used to store products by sellers.
  * The backbone of this datastructure is {@link PersistentUnorderedMap} - a facade in front of the NEAR's {@link Storage}.
@@ -66,5 +50,4 @@ export class Purchase {
  * - the value in this `PersistentUnorderedMap` is a product itself `Product` that is related to a given key (`productId`)
  */
 export const productsStorage = new PersistentUnorderedMap<string, Product>("LISTED_PRODUCTS");
-export const purchases = new PersistentUnorderedMap<string, Purchase[]>("PURCHASED_PRODUCTS");
 export const purchaseStats = new PersistentMap<string, u32>("PURCHASE_STATISTICS");
