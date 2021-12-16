@@ -1,3 +1,7 @@
 build
 node_modules
 *.log
+
+smartcontract/build
+smartcontract/node_modules
+*.log
