@@ -1,14 +1,12 @@
 import './App.css';
 
 import React, { useEffect, useCallback, useState } from 'react';
-
 import 'react-toastify/dist/ReactToastify.min.css';
 import { Container, Nav, Button, Alert } from "react-bootstrap";
-
 import Wallet from "./components/wallet/Wallet";
 import { Notification } from './components/utils/Notifications';
 import Products from './components/marketplace/Products';
-
+import coverImg from "./assets/img/sandwich.jpg"
 import { login, logout as destroy, accountBalance } from './utils/contract';
 
 const App = function AppWrapper() {
@@ -37,7 +35,7 @@ const App = function AppWrapper() {
   return (
     <>
       <Notification />
-      <Container style={{ maxWidth: "400px" }}>
+      <Container fluid="md">
         {
           account.accountId ? (
             <>
@@ -53,19 +51,20 @@ const App = function AppWrapper() {
           ) : (
 
             <>
-              <div className="d-flex justify-content-center flex-column text-center vh-100">
-                <Alert variant="warning" className="mt-auto">
-                  <Alert.Heading>Street Food Kigali</Alert.Heading>
+              <div className="d-flex justify-content-center flex-column text-center " style={{ background: "#000", minHeight: "100vh" }}>
+                <div className="mt-auto text-light mb-5">
+                  <div className=" ratio ratio-1x1 mx-auto mb-2" style={{ maxWidth: "320px" }}>
+                    <img src={coverImg} alt="" />
+                  </div>
+                  <h1>Street Food Kigali</h1>
                   <p>
                     Please connect your wallet to continue.
                   </p>
-                  <div className="d-flex justify-content-center mt-5">
-                    <Button onClick={triggerConnection} variant="warning" className="rounded-pill px-3">
-                      Connect Wallet
-                    </Button>
-                  </div>
-                </Alert>
-                <p className="mt-auto">Powered by NEAR</p>
+                  <Button onClick={login} variant="outline-light" className="rounded-pill px-3 mt-3">
+                    Connect Wallet
+                  </Button>
+                </div>
+                <p className="mt-auto text-secondary">Powered by NEAR</p>
               </div>
             </>
           )
