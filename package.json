@@ -1,6 +1,6 @@
 {
   "homepage": "https://dacadeorg.github.io/near-marketplace-dapp",
-  "name": "react-marketplace-dapp",
+  "name": "near-marketplace-dapp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
