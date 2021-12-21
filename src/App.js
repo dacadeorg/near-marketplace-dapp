@@ -7,7 +7,7 @@ import Wallet from "./components/wallet/Wallet";
 import { Notification } from './components/utils/Notifications';
 import Products from './components/marketplace/Products';
 import coverImg from "./assets/img/sandwich.jpg"
-import { login, logout as destroy, accountBalance } from './utils/contract';
+import { logout as destroy, accountBalance } from './utils/contract';
 
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
@@ -23,14 +23,6 @@ const App = function AppWrapper() {
   useEffect(() => {
     getBalance();
   }, [getBalance]);
-
-  const triggerConnection = async () => {
-    try {
-      await login();
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   return (
     <>
@@ -56,7 +48,7 @@ const App = function AppWrapper() {
                   <div className=" ratio ratio-1x1 mx-auto mb-2" style={{ maxWidth: "320px" }}>
                     <img src={coverImg} alt="" />
                   </div>
-                  <h1>Street Food Kigali</h1>
+                  <h1>Street Food</h1>
                   <p>
                     Please connect your wallet to continue.
                   </p>
