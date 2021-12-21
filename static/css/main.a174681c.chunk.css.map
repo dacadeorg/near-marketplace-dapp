@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.css"],"names":[],"mappings":"AAAA,OACE,yGAC0C,CAC1C,kBACF,CACA,OACE,qBACF","file":"main.a174681c.chunk.css","sourcesContent":[".cover {\n  background-image: radial-gradient( circle farthest-corner at 10% 20%,\n  #35D07F 0%, #2aa666 47.7%, #207d4c 92.3% );\n  border-radius: .5em;\n}\n.vh-80 {\n  height: 80vh!important;\n}\n"]}
