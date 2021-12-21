@@ -63,7 +63,7 @@ const Products = () => {
       {!loading ? (
         <>
           <div className="d-flex justify-content-between align-items-center mb-4">
-            <h1 className="fs-4 fw-bold mb-0">Street Food Kigali</h1>
+            <h1 className="fs-4 fw-bold mb-0">Street Food</h1>
             <AddProduct save={addProduct} />
           </div>
           <Row xs={1} sm={2} lg={3}  className="g-3  mb-5 g-xl-4 g-xxl-5">
