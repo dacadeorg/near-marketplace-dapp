@@ -1,3 +1,5 @@
+The app is hosted here: [https://dacadeorg.github.io/near-marketplace-dapp/](https://dacadeorg.github.io/near-marketplace-dapp/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
