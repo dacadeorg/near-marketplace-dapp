@@ -48,7 +48,7 @@ function writeProductInternally(product: Product): void {
         throw new Error("only a product owner can update the product");
     }
     if (storedProduct === null) {
-        storedProduct = new Product(product);
+        storedProduct = Product.fromPayload(product);
     } else {
         storedProduct.updateProduct(product);
     }

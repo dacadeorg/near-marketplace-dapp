@@ -7,7 +7,7 @@ import Wallet from "./components/wallet/Wallet";
 import { Notification } from './components/utils/Notifications';
 import Products from './components/marketplace/Products';
 import coverImg from "./assets/img/sandwich.jpg"
-import { login, logout as destroy, accountBalance } from './utils/contract';
+import { login, logout as destroy, accountBalance } from './utils/near';
 
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
