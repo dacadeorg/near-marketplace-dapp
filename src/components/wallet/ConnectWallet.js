@@ -1,7 +1,5 @@
-// import { useContractKit } from "@celo-tools/use-contractkit";
 import React from 'react';
 import { login } from '../../utils/marketplace'
-// import { toast } from "react-toastify";
 
 const ConnectWallet = () => {
   const triggerConnection = async () => {
