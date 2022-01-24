@@ -12,7 +12,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // function to get the list of products from the celo blockchain
+  // function to get the list of products
   const getProducts = useCallback(async () => {
     try {
       setLoading(true);
