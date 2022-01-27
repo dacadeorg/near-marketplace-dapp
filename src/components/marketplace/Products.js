@@ -6,7 +6,7 @@ import Loader from '../utils/Loader';
 import { Row } from 'react-bootstrap';
 
 import { NotificationSuccess, NotificationError } from '../utils/Notifications';
-import { getProducts as getProductList, buyProduct, createProduct, getAccountId } from '../../utils/marketplace';
+import { getProducts as getProductList, buyProduct, createProduct } from '../../utils/marketplace';
 
 const Products = () => {
   const [products, setProducts] = useState([]);

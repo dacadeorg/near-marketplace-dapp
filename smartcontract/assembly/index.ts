@@ -41,18 +41,12 @@ export function writeProduct(product: Product): void {
  * 
  * @param product - an identifier of a product that should be stored in the blockchain
  */
-function writeProductInternally(product: Product): void {
-    // check if the sender is an owner so the product can be updated
+ function writeProductInternally(product: Product): void {
     let storedProduct = productsStorage.get(product.id);
-    if (storedProduct !== null && product.owner !== null && product.owner !== context.sender) {
-        throw new Error("only a product owner can update the product");
+    if (storedProduct !== null) { // 1
+        throw new Error(`a product with id=${product.id} already exists`);
     }
-    if (storedProduct === null) {
-        storedProduct = Product.fromPayload(product);
-    } else {
-        storedProduct.updateProduct(product);
-    }
-    productsStorage.set(product.id, storedProduct);
+    productsStorage.set(product.id, Product.fromPayload(product));
 }
 
 /**

@@ -18,24 +18,17 @@ export class Product {
     sold: u32;
     public static fromPayload(payload: Product): Product {
         const product = new Product();
-        product.id = product.id;
-        product.name = product.name;
-        product.description = product.description;
-        product.image = product.image;
-        product.location = product.location;
-        product.price = product.price;
+        product.id = payload.id;
+        product.name = payload.name;
+        product.description = payload.description;
+        product.image = payload.image;
+        product.location = payload.location;
+        product.price = payload.price;
         product.owner = context.sender;
         return product;
     }
     public incrementSoldAmount(): void {
         this.sold = this.sold + 1;
-    }
-    public updateProduct(product: Product): void {
-        this.name = product.name;
-        this.description = product.description;
-        this.image = product.image;
-        this.location = product.location;
-        this.price = product.price;
     }
 }
 

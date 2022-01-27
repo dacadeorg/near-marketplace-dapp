@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Modal, Form, FloatingLabel, Card, Alert } from "react-bootstrap";
+import { Button, Modal, Form, FloatingLabel } from "react-bootstrap";
 
 const AddProduct = ({ save }) => {
   // do we really need to use state for every single input?
