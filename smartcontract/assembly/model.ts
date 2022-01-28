@@ -45,4 +45,3 @@ export class Product {
  * - the value in this `PersistentUnorderedMap` is a product itself `Product` that is related to a given key (`productId`)
  */
 export const productsStorage = new PersistentUnorderedMap<string, Product>("LISTED_PRODUCTS");
-export const purchaseStats = new PersistentMap<string, u32>("PURCHASE_STATISTICS");
