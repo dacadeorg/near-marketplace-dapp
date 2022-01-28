@@ -14,7 +14,7 @@ export function buyProduct(productId: string): void {
         throw new Error("product not found");
     }
     if (product.price.toString() != context.attachedDeposit.toString()) {
-        throw new Error("attached deposite should be greater than the product's price");
+        throw new Error("attached deposit should be greater than the product's price");
     }
     /*
         `ContractPromiseBatch` is used here to create a transaction to transfer the money to the seller
