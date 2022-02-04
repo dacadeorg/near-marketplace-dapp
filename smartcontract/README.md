@@ -14,7 +14,7 @@ The next directories and files must be created to proceed with smart contracts:
 * asconfig.json - contains most of configuration properties
 * assembly/tsconfig.json
 
-### `asconfig.json`
+### `assembly/asconfig.json`
 By default it's needed to add the next content to the file. By adding this, we just extend the configuration provided by `near-sdk-as`.
 ```
 {

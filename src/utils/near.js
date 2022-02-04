@@ -10,9 +10,9 @@ export async function initializeContract() {
     window.accountId = window.walletConnection.getAccountId();
     window.contract = new Contract(window.walletConnection.account(), nearEnv.contractName, {
       // List here all view methods
-      viewMethods: ['getPurchases', 'getProduct', 'getProducts'],
+      viewMethods: ['getProduct', 'getProducts'],
       // List call methods that change state
-      changeMethods: ['buyProduct', 'writeProduct'],
+      changeMethods: ['buyProduct', 'setProduct'],
     })
   }
   

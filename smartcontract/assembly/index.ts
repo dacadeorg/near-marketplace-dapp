@@ -22,7 +22,6 @@ export function buyProduct(productId: string): void {
         which is defined by `--depositYocto=${AMOUNT}` parameter during the invocation 
     */
     ContractPromiseBatch.create(product.owner).transfer(context.attachedDeposit);
-    // adding a product to the list of purchases
     product.incrementSoldAmount();
     productsStorage.set(product.id, product);
 }
@@ -31,19 +30,9 @@ export function buyProduct(productId: string): void {
  * 
  * @param product - a product to be added to the blockchain
  */
-export function writeProduct(product: Product): void {
-    writeProductInternally(product);
-}
-
-/**
- * 
- * A helper function that adds a product to the blockchain where it can be bought
- * 
- * @param product - an identifier of a product that should be stored in the blockchain
- */
- function writeProductInternally(product: Product): void {
+export function setProduct(product: Product): void {
     let storedProduct = productsStorage.get(product.id);
-    if (storedProduct !== null) { // 1
+    if (storedProduct !== null) {
         throw new Error(`a product with id=${product.id} already exists`);
     }
     productsStorage.set(product.id, Product.fromPayload(product));
