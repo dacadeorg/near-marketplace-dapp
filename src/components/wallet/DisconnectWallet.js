@@ -1,8 +1,7 @@
 import React from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import PropTypes from 'prop-types';
-import { logout as destroy } from '../../utils/marketplace';
+import { logout as destroy } from '../../utils/near';
 
 const DisconnectWallet = () => {
   const logout = () => {

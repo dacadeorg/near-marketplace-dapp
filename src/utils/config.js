@@ -26,4 +26,4 @@ function environment(env) {
   }
 }
 
-module.exports = environment
+export default environment

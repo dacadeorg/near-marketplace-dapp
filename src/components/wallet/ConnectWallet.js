@@ -1,10 +1,10 @@
 import React from 'react';
-import { login } from '../../utils/marketplace'
+import { login } from '../../utils/near'
 
 const ConnectWallet = () => {
   const triggerConnection = async () => {
     try {
-      await login();
+      login();
     } catch (e) {
       console.log(e);
     }
