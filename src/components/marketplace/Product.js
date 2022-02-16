@@ -1,13 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { utils } from 'near-api-js';
+import React from "react";
+import PropTypes from "prop-types";
+import { utils } from "near-api-js";
 import { Card, Button, Col, Badge, Stack } from "react-bootstrap";
-import Identicon from '../utils/Identicon'
 
 const Product = ({ product, buy }) => {
-  const {
-    id, price, name, description, sold, location, image, owner
-  } = product;
+  const { id, price, name, description, sold, location, image, owner } =
+    product;
 
   const triggerBuy = () => {
     buy(id, price);
@@ -18,24 +16,26 @@ const Product = ({ product, buy }) => {
       <Card className=" h-100">
         <Card.Header>
           <Stack direction="horizontal" gap={2}>
-            <Identicon address={owner} size={28} />
             <span className="font-monospace text-secondary">{owner}</span>
-            <Badge bg="secondary"
-              className="ms-auto">
+            <Badge bg="secondary" className="ms-auto">
               {sold} Sold
             </Badge>
           </Stack>
         </Card.Header>
-        <div className=" ratio ratio-4x3"> 
-            <img  src={image} alt={name} style={{objectFit: 'cover'}}/>     
+        <div className=" ratio ratio-4x3">
+          <img src={image} alt={name} style={{ objectFit: "cover" }} />
         </div>
         <Card.Body className="d-flex  flex-column text-center">
-        <Card.Title>{name}</Card.Title>
+          <Card.Title>{name}</Card.Title>
           <Card.Text className="flex-grow-1 ">{description}</Card.Text>
-          <Card.Text className="text-secondary">  
+          <Card.Text className="text-secondary">
             <span>{location}</span>
           </Card.Text>
-          <Button variant="outline-dark" onClick={triggerBuy} className="w-100 py-3">
+          <Button
+            variant="outline-dark"
+            onClick={triggerBuy}
+            className="w-100 py-3"
+          >
             Buy for {utils.format.formatNearAmount(price)} NEAR
           </Button>
         </Card.Body>
