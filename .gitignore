@@ -1,7 +1,9 @@
 build
 node_modules
 *.log
+.DS_Store
 
-smartcontract/build
-smartcontract/node_modules
-*.log
+smartcontract/assemblyscript/build
+smartcontract/assemblyscript/node_modules
+smartcontract/rust/target
+smartcontract/rust/Cargo.lock

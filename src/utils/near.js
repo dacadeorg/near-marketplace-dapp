@@ -16,6 +16,12 @@ export async function initializeContract() {
   window.contract = new Contract(
     window.walletConnection.account(),
     nearEnv.contractName,
+    // Methods from the AssemblyScript contract are listed here.
+    // If you are working with a contract written in Rust, replace methods names using the correct case:
+    //  - getProduct  -> get_product
+    //  - getProducts -> get_products
+    //  - buyProducts -> buy_products
+    //  - setProduct  -> set_product
     {
       // List here all view methods
       viewMethods: ["getProduct", "getProducts"],
