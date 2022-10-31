@@ -41,7 +41,7 @@ impl Marketplace {
         id - an identifier of a product to be returned
         a product for a given id
     */
-    pub fn get_product(self, id: &String) -> Option<Product> {
+    pub fn get_product(&self, id: &String) -> Option<Product> {
         self.listed_products.get(id)
     }
 
@@ -49,7 +49,7 @@ impl Marketplace {
         A function that returns an array of products for all accounts
         returns an array of objects that represent a product
     */
-    pub fn get_products(self) -> Vec<Product> {
+    pub fn get_products(&self) -> Vec<Product> {
         self.listed_products.values_as_vector().to_vec()
     }
 
